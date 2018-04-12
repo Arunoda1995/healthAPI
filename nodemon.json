@@ -1,0 +1,10 @@
+{
+
+    "env":{
+
+        "MONGO_ATLAS_PW":"1995Arunoda0528",
+        "JWT_KEY":"secret"
+
+    }
+
+}
