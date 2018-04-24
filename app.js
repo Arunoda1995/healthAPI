@@ -1,10 +1,12 @@
+// import Packages
 const express = require('express');
 const app = express();
+//Package For Log requests
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-//Routes which should handle request
+
 const cholesterolRoutes = require('./api/routes/cholesterol')
 const diabetesRoutes = require('./api/routes/diabetes')
 const bloodpressureRoutes = require('./api/routes/bloodpressure')
@@ -17,6 +19,7 @@ mongoose.connect('mongodb://arunoda:' + process.env.MONGO_ATLAS_PW + '@cluster0-
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+
 
 app.use((req,res,next)=>{
 
@@ -32,12 +35,13 @@ app.use((req,res,next)=>{
     next();
 });
 
-
+//Routes which should handle request
 app.use('/cholesterol',cholesterolRoutes);
 app.use('/diabetes',diabetesRoutes);
 app.use('/bloodpressure',bloodpressureRoutes);
 app.use('/user',userRoutes);
 
+//Midddleware for Error Handling 
 app.use((req,res,next)=>{
 
 const error = new Error('NOT FOUND');
@@ -53,7 +57,7 @@ app.use((error,req,res,next) =>{
         error:{
             message: error.message
         }
-
+ 
     });
 });
 

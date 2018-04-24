@@ -87,7 +87,7 @@ router.get('/:cholesterolId',(req,res,next)=>{
 //Add new informatuion t0  cholesterol information
 router.post('/',checkAuth,(req,res,next)=>{
 
-   
+   //Model as a Constructor
     const cholesterol = new Cholesterol({
 
         _id: new mongoose.Types.ObjectId(),
