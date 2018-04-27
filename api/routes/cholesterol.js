@@ -67,7 +67,6 @@ router.get('/:cholesterolId',(req,res,next)=>{
         .then(doc => { 
             if(doc){
                 res.status(200).json({
-
                     cholesterol:doc,
                     request:{
                         type:'GET',
@@ -188,7 +187,7 @@ router.delete('/:cholesterolId',checkAuth,(req,res,next)=>{
         .then(result => {
             res.status(200).json({
 
-                message:"Cholesterol Iformation Deleted",
+                message:"Cholesterol Information Deleted",
                 request:{
                     type:'POST',
                     url:'http://localhost:3000/cholesterol/',

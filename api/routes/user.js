@@ -181,6 +181,6 @@ module.exports = router;
                         *How it is addressed:-
                                 1.All User Passwords are bycrypt. Therefore Hackers cannot use tables to crack the passwords
             
-   
+            node.bcrypt.js has  used for password hashing  
 
 */
