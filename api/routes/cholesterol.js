@@ -66,7 +66,15 @@ router.get('/:cholesterolId',(req,res,next)=>{
         .exec()
         .then(doc => { 
             if(doc){
-                res.status(200).json(doc);
+                res.status(200).json({
+
+                    cholesterol:doc,
+                    request:{
+                        type:'GET',
+                        url:'http://localhost/cholesterol'
+                    }
+
+                });
             }
             else
             {
@@ -111,10 +119,10 @@ router.post('/',checkAuth,(req,res,next)=>{
                     cholesterolType: result.cholesterolType,
                     minValue:result.minValue,
                     maxValue:result.maxValue,
-                    _id:result.id,
+                    _id:result._id,
                     request:{
                         type:'GET',
-                        url:"http://localhost:3000/cholesterol/" + result.id
+                        url:"http://localhost:3000/cholesterol/" + result._id
                     }
                     
 
