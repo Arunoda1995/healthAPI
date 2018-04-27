@@ -9,6 +9,7 @@ const Cholesterol = require('../models/cholesterol');
 //Get All cholesterol Data
 router.get('/',(req,res,next)=>{
 
+    //Mongoose Method to get Data
     Cholesterol.find()
             .select('cholesterolType minValue maxValue _id')
             .exec()
@@ -22,7 +23,7 @@ router.get('/',(req,res,next)=>{
                                 _id: doc._id,
                                 request:{
                                     type:'GET',
-                                    url:'http:localhost:3000/cholesterol/' + doc._id 
+                                    url:'http://localhost:3000/cholesterol/' + doc._id 
                                 }
 
                             }
@@ -58,12 +59,12 @@ router.get('/',(req,res,next)=>{
 router.get('/:cholesterolId',(req,res,next)=>{
 
     const id = req.params.cholesterolId;
+
+    //Mongoose Method to find Using Id
     Cholesterol.findById(id)
         .select('cholesterolType minValue maxValue _id')
         .exec()
-        .then(doc => {
-
-        
+        .then(doc => { 
             if(doc){
                 res.status(200).json(doc);
             }
@@ -98,6 +99,7 @@ router.post('/',checkAuth,(req,res,next)=>{
 
     });
 
+    //save data in the mnogoose databases
     cholesterol
         .save()
         .then(result => {
@@ -153,7 +155,7 @@ router.patch('/:cholesterolId',checkAuth,(req,res,next)=>{
             message:'Cholesterol information Updated Succesfully',
             request:{
                 type:'GET',
-                url:'http:localhost:3000/cholesterol/' + id
+                url:'http://localhost:3000/cholesterol/' + id
             }
 
         });
@@ -181,7 +183,7 @@ router.delete('/:cholesterolId',checkAuth,(req,res,next)=>{
                 message:"Cholesterol Iformation Deleted",
                 request:{
                     type:'POST',
-                    url:'http:localhost:3000/cholesterol/',
+                    url:'http://localhost:3000/cholesterol/',
                     body:{
                         cholesterolType:String,
                         minValue:Number,
