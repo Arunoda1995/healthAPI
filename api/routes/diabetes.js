@@ -104,7 +104,7 @@ router.post('/',checkAuth,(req,res,next)=>{
         {
             minValue:req.body.minValue,
             maxValue:req.body.maxValue
-        },
+        }
         
     });
 

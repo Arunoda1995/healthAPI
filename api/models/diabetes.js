@@ -13,7 +13,7 @@ var diabetesinfoSchema = mongoose.Schema({
             required:true
            
         },
-        maxvalue:{
+        maxValue:{
             type:Number,
             required:true
            
@@ -25,7 +25,7 @@ var diabetesinfoSchema = mongoose.Schema({
             required:true
           
         },
-        maxvalue:{
+        maxValue:{
             type:Number,
             required:true 
         }
