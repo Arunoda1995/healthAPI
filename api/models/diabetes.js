@@ -9,22 +9,25 @@ var diabetesinfoSchema = mongoose.Schema({
     },
     fpg:{
         minValue:{
-            type:String
+            type:Number,
+            required:true
            
         },
         maxvalue:{
-            type:String
+            type:Number,
+            required:true
            
         }
     },
     twohPG:{
         minValue:{
-            type:String
+            type:Number,
+            required:true
           
         },
         maxvalue:{
-            type:String
-           
+            type:Number,
+            required:true 
         }
     }
     

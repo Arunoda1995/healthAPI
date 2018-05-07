@@ -114,7 +114,7 @@ router.post('/',checkAuth,(req,res,next)=>{
             res.status(201).json({
 
                 message:'Successfully Entered Cholesterol Information',
-                cholesterol:{
+                Cholesterol:{
                     cholesterolType: result.cholesterolType,
                     minValue:result.minValue,
                     maxValue:result.maxValue,

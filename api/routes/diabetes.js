@@ -7,7 +7,7 @@ const checkAuth = require('../middleware/check-auth');
 const Diabetes = require('../models/diabetes');
 
 //Get all diabtes information data
-router.get('/',checkAuth,(req,res,next)=>{
+router.get('/',(req,res,next)=>{
 
     Diabetes.find()
             .select('diabetesType fpg twohPG _id')
@@ -88,7 +88,7 @@ router.get('/:diabetesId',(req,res,next)=>{
 
 
 //Add new diabetes information
-router.post('/',(req,res,next)=>{
+router.post('/',checkAuth,(req,res,next)=>{
 
    
     const diabetes = new Diabetes({
@@ -115,7 +115,7 @@ router.post('/',(req,res,next)=>{
             res.status(201).json({
 
                 message:'Successfully Entered Diabetes Information',
-                bloodpressure:{
+                Diabetes:{
                     diabetesType: result.diabetesType,
                     fpg:result.fpg,
                     twohPG:result.twohPG,
