@@ -14,7 +14,6 @@ router.get('/:cholesterolId',cholesterolController.cholesterol_get_cholesterol);
 //Add new informatuion t0  cholesterol information
 router.post('/',checkAuth,cholesterolController.cholesterol_create);
 
-
 //Update particular cholesterol data using choleterol id
 router.patch('/:cholesterolId',checkAuth,cholesterolController.cholesterol_update);
 
